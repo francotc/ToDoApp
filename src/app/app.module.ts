@@ -42,6 +42,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-add-task.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
     NavbarComponent,
     FooterComponent,
     TodoListComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    ModalAddTaskComponent
   ],
   imports: [
     BrowserModule,

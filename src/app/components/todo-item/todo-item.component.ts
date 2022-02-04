@@ -26,7 +26,8 @@ export class TodoItemComponent implements OnInit {
     this.modifyTarea.emit('delete');
   }
 
-  toggleTarea() {
+  toggleTarea(event: any) {
+    // console.log('toggle', event)
     this.modifyTarea.emit('toggle');
   }
 
