@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fran-terenti": {
+      "hosting": {
+        "todo-app": [
+          "todo-app-fran"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fran-terenti"
+  }
+}
