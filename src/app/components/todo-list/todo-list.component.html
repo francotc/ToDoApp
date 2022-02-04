@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card px-2">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Compras</h4>
+
+          <div class="lista-tareas mb-4">
+            <app-todo-item *ngFor="let tarea of tareas; index as i; last as l" [tarea]="tarea" [last]="l"
+              (modifyTarea)="modifyTarea($event, i)"></app-todo-item>
+          </div>
+          <div class="d-grid gap-2">
+            <button mdbRipple type="button" class="btn btn-primary" (click)="openModal()"><i
+                class="fa fa-plus me-2"></i>Agregar tarea</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

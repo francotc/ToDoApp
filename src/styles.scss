@@ -3,5 +3,26 @@
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 @import '~@fortawesome/fontawesome-free/scss/regular.scss';
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
- 
+
 @import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+@import 'app/stylesheets/variables';
+
+
+
+// Agrega espaciado en varios componentes
+.db-screen-bg {
+  width: 100%;
+  background: $gradient-2;
+  padding: $pd-4 0 $pd-6 0;
+}
+.db-screen-bg-2 {
+  width: 100%;
+  background: $gradient-2;
+  padding: $pd-4 0;
+}
+.db-container {
+  padding: $pd-3 0;
+}
+.db-container-2 {
+  padding: $pd-4 0;
+}
