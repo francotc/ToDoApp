@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mdb-angular-ui-kit-pro-essential": {
+    "todo-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mdb-angular-ui-kit-pro-essential",
+            "outputPath": "dist/todo-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "mdb-angular-ui-kit-pro-essential:build:production"
+              "browserTarget": "todo-app:build:production"
             },
             "development": {
-              "browserTarget": "mdb-angular-ui-kit-pro-essential:build:development"
+              "browserTarget": "todo-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mdb-angular-ui-kit-pro-essential:build"
+            "browserTarget": "todo-app:build"
           }
         },
         "test": {
@@ -109,5 +109,5 @@
       }
     }
   },
-  "defaultProject": "mdb-angular-ui-kit-pro-essential"
+  "defaultProject": "todo-app"
 }
