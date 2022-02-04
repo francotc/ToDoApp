@@ -7,12 +7,13 @@
 @import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
 @import "app/stylesheets/variables";
 
-* {
-  user-select: none;
+*:not(input, textarea) {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; // locks fields on Safari
+  -khtml-user-select: none; // locks fields on Safari
   -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
   -ms-user-select: none;
+  user-select: none;
 }
 
 // Agrega espaciado en varios componentes
