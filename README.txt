@@ -1,3 +1,3 @@
-ToDO App
+ToDo App
 
 Comisión Salamandra Sócrates
