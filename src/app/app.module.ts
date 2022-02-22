@@ -48,6 +48,7 @@ import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatBadgeModule,
 
     // MDB Modules
     MdbAccordionModule,

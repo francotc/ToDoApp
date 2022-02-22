@@ -3,7 +3,10 @@
     <div class="col-lg-7">
       <div class="card px-2">
         <div class="card-body">
-          <h4 class="card-title mb-4">Compras</h4>
+          <h4 class="card-title mb-4">Compras |
+            <span [matBadge]="(taskStats$ | async).pending" matBadgeSize="medium">Pendientes</span>&nbsp;&nbsp;
+            <span [matBadge]="(taskStats$ | async).completed" matBadgeSize="medium">Realizadas</span>
+          </h4>
 
           <div class="lista-tareas mb-4">
             <app-todo-item *ngFor="let tarea of tareas; index as i; last as l" [tarea]="tarea" [last]="l"

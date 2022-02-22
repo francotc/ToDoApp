@@ -21,6 +21,10 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoListService.recuperarTareas();
+
+    this.todoListService.taskStats$.subscribe(stats => {
+      console.log(stats);
+    });
   }
 
   modifyTarea(accion: string, index: number) {
@@ -58,6 +62,9 @@ export class TodoListComponent implements OnInit {
 
   get tareas() {
     return this.todoListService.tareas;
+  }
+  get taskStats$() {
+    return this.todoListService.taskStats$;
   }
 
 }
