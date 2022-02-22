@@ -44,6 +44,11 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-add-task.component';
 
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +61,13 @@ import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+
+    // Angular Material
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+
+    // MDB Modules
     MdbAccordionModule,
     MdbAutocompleteModule,
     MdbCarouselModule,
