@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { Tarea } from 'src/app/models/tareas.model';
+import { TodoListService } from 'src/app/services/todo-list.service';
 import { ModalAddTaskComponent } from '../modals/modal-add-task/modal-add-task.component';
 
 @Component({
@@ -10,42 +10,29 @@ import { ModalAddTaskComponent } from '../modals/modal-add-task/modal-add-task.c
 })
 export class TodoListComponent implements OnInit {
 
-  tareas: Tarea[] = [];
   modalRef: MdbModalRef<ModalAddTaskComponent> | null = null;
 
 
 
   constructor(
     private modalService: MdbModalService,
+    private todoListService: TodoListService,
   ) { }
 
   ngOnInit(): void {
-    this.recuperarTareas();
+    this.todoListService.recuperarTareas();
   }
-
-
-  recuperarTareas() {
-    if (localStorage.getItem('tareas')) {
-      this.tareas = JSON.parse(localStorage.getItem('tareas'));
-    }
-  }
-  guardarTareas() {
-    localStorage.setItem('tareas', JSON.stringify(this.tareas));
-  }
-
 
   modifyTarea(accion: string, index: number) {
     switch (accion) {
       case 'edit':
-        this.openEdit(index, this.tareas[index].texto);
+        this.openEdit(index);
         break;
       case 'delete':
-        this.tareas.splice(index, 1);
-        this.guardarTareas();
+        this.todoListService.removeTask(index);
         break;
       case 'toggle':
-        this.tareas[index].estado = !this.tareas[index].estado;
-        this.guardarTareas();
+        this.todoListService.toggleTask(index);
         break;
     }
   }
@@ -55,23 +42,22 @@ export class TodoListComponent implements OnInit {
       modalClass: 'modal-frame modal-bottom',
     })
     this.modalRef.onClose.subscribe((texto: any) => {
-      if (texto) {
-        this.tareas.push({ texto, estado: false });
-        this.guardarTareas();
-      }
+      this.todoListService.addTask(texto);
     });
   }
-  openEdit(index: number, content: string) {
+  openEdit(index: number) {
+    const content = this.todoListService.getTaskText(index);
     this.modalRef = this.modalService.open(ModalAddTaskComponent, {
       data: { content },
       modalClass: 'modal-frame modal-bottom',
     })
     this.modalRef.onClose.subscribe((texto: any) => {
-      if (texto) {
-        this.tareas[index].texto = texto;
-        this.guardarTareas();
-      }
+      this.todoListService.editTask(index, texto);
     });
+  }
+
+  get tareas() {
+    return this.todoListService.tareas;
   }
 
 }
