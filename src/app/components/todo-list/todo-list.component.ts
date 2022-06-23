@@ -12,7 +12,7 @@ export class TodoListComponent implements OnInit {
 
   modalRef: MdbModalRef<ModalAddTaskComponent> | null = null;
 
-
+  taskStats = this.todoListService.taskStats$;
 
   constructor(
     private modalService: MdbModalService,
@@ -22,7 +22,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
     this.todoListService.recuperarTareas();
 
-    this.todoListService.taskStats$.subscribe(stats => {
+    this.taskStats.subscribe(stats => {
       console.log(stats);
     });
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Tarea } from '../models/tareas.model';
+import { Stats, Tarea } from '../models/tareas.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import { Tarea } from '../models/tareas.model';
 export class TodoListService {
   tareas: Tarea[] = [];
 
-  private taskStats = new BehaviorSubject<any>({ pending: 0, completed: 0 });
+  private taskStats = new BehaviorSubject<Stats>({ pending: 0, completed: 0 });
   taskStats$ = this.taskStats.asObservable();
 
 
@@ -16,13 +16,16 @@ export class TodoListService {
 
 
   recuperarTareas() {
-    if (localStorage.getItem('tareas')) {
-      this.tareas = JSON.parse(localStorage.getItem('tareas'));
+    const localStorageData = localStorage.getItem('tareas');
+    if (localStorageData) {
+      this.tareas = JSON.parse(localStorageData);
       this.updateTaskStats();
     }
   }
   private guardarTareas() {
-    localStorage.setItem('tareas', JSON.stringify(this.tareas));
+    const parsedData = JSON.stringify(this.tareas);
+    console.log(parsedData);
+    localStorage.setItem('tareas', parsedData);
   }
   private updateTaskStats() {
     const pending = this.tareas.filter(tarea => !tarea.estado).length;
